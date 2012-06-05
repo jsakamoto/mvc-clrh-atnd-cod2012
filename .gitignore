@@ -1,0 +1,7 @@
+
+/atnd/bin
+/atnd/obj
+/atnd/App_Data/AtndDB_log.ldf
+/atnd/App_Data/AtndDB.mdf
+*.suo
+/packages

@@ -1,0 +1,51 @@
+﻿@model atnd.Models.Attendee
+
+@{
+    ViewBag.Title = "Regist";
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Attendee</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Name, null, new {autofocus=true })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comment)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Comment, 5, 20, new { })
+            @Html.ValidationMessageFor(model => model.Comment)
+        </div>
+
+        <p>
+            <input type="submit" value="Cancel" name="cmd" class="btn btn-large cancel"/>
+            <input type="submit" value="Regist" name="cmd" class="btn btn-primary btn-large"/>
+        </p>
+    </fieldset>
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $(".cancel").click(function () {
+            if (!confirm('Sure?')) return false;
+        });
+    });
+</script>
